@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:paymentappui/Screens/AuthScreens/register.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_three.dart';
 import 'package:paymentappui/colors.dart';
-import 'package:sizer/sizer.dart';
 
-class OnBoardTwo extends StatefulWidget {
-  const OnBoardTwo({super.key});
+class OnBoardEight extends StatefulWidget {
+  const OnBoardEight({super.key});
 
   @override
-  State<OnBoardTwo> createState() => _OnBoardTwoState();
+  State<OnBoardEight> createState() => _OnBoardEightState();
 }
 
-class _OnBoardTwoState extends State<OnBoardTwo> {
+class _OnBoardEightState extends State<OnBoardEight> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,27 +27,28 @@ class _OnBoardTwoState extends State<OnBoardTwo> {
               SizedBox(
                 height: 350,
                 width: 350,
-                child: Image.asset('assets/images/Fast loading-rafiki 1.png'),
+                child: Image.asset('assets/images/Group 64.png'),
               ),
               const Text(
-                'Easy, Fast & Trusted',
+                textAlign: TextAlign.center,
+                'Color Your Cards',
                 style: TextStyle(
                   color: blackColor,
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 25),
               const Text(
                 textAlign: TextAlign.center,
-                'Fast money transfer and gauranteed safe transactions with others.',
+                'Provides better cards management  when using Multiple Cards by using a  different color for each payment  method.',
                 style: TextStyle(
                   color: roundColor2,
-                  fontSize: 15,
+                  fontSize: 13,
                 ),
               ),
               Padding(
-                padding:  const EdgeInsets.only(top: 50, bottom: 15),
+                padding: const EdgeInsets.only(top: 50, bottom: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -69,13 +69,13 @@ class _OnBoardTwoState extends State<OnBoardTwo> {
               ),
               //
               //
-              const SizedBox(height: 50),
+              const SizedBox(height: 45),
               DefaultButton(
                 text: 'Continue',
                 onTapped: () {
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
-                      builder: (context) => const OnBoardThree(),
+                      builder: (context) => const RegisterScreen(),
                     ),
                     (route) => false,
                   );

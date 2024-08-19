@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_three.dart';
+import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_seven.dart';
 import 'package:paymentappui/colors.dart';
-import 'package:sizer/sizer.dart';
 
-class OnBoardTwo extends StatefulWidget {
-  const OnBoardTwo({super.key});
+class OnBoardSix extends StatefulWidget {
+  const OnBoardSix({super.key});
 
   @override
-  State<OnBoardTwo> createState() => _OnBoardTwoState();
+  State<OnBoardSix> createState() => _OnBoardSixState();
 }
 
-class _OnBoardTwoState extends State<OnBoardTwo> {
+class _OnBoardSixState extends State<OnBoardSix> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,27 +27,28 @@ class _OnBoardTwoState extends State<OnBoardTwo> {
               SizedBox(
                 height: 350,
                 width: 350,
-                child: Image.asset('assets/images/Fast loading-rafiki 1.png'),
+                child: Image.asset('assets/images/Wallet-amico 1.png'),
               ),
               const Text(
-                'Easy, Fast & Trusted',
+                textAlign: TextAlign.center,
+                'Multiple Credit Cards',
                 style: TextStyle(
                   color: blackColor,
-                  fontSize: 40,
+                  fontSize: 38,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 15),
               const Text(
                 textAlign: TextAlign.center,
-                'Fast money transfer and gauranteed safe transactions with others.',
+                'Provides the 100% freedom of the financial management with Multiple Payment Options for local & International Payments.',
                 style: TextStyle(
                   color: roundColor2,
                   fontSize: 15,
                 ),
               ),
               Padding(
-                padding:  const EdgeInsets.only(top: 50, bottom: 15),
+                padding: const EdgeInsets.only(top: 50, bottom: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -75,7 +75,7 @@ class _OnBoardTwoState extends State<OnBoardTwo> {
                 onTapped: () {
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
-                      builder: (context) => const OnBoardThree(),
+                      builder: (context) => const OnBoardSeven(),
                     ),
                     (route) => false,
                   );

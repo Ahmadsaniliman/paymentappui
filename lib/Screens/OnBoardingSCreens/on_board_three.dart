@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_foure.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_three.dart';
 import 'package:paymentappui/colors.dart';
 import 'package:sizer/sizer.dart';
 
-class OnBoardTwo extends StatefulWidget {
-  const OnBoardTwo({super.key});
+class OnBoardThree extends StatefulWidget {
+  const OnBoardThree({super.key});
 
   @override
-  State<OnBoardTwo> createState() => _OnBoardTwoState();
+  State<OnBoardThree> createState() => _OnBoardThreeState();
 }
 
-class _OnBoardTwoState extends State<OnBoardTwo> {
+class _OnBoardThreeState extends State<OnBoardThree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +29,10 @@ class _OnBoardTwoState extends State<OnBoardTwo> {
               SizedBox(
                 height: 350,
                 width: 350,
-                child: Image.asset('assets/images/Fast loading-rafiki 1.png'),
+                child: Image.asset('assets/images/Savings-pana 1.png'),
               ),
               const Text(
-                'Easy, Fast & Trusted',
+                'Saving Your Money',
                 style: TextStyle(
                   color: blackColor,
                   fontSize: 40,
@@ -41,7 +42,7 @@ class _OnBoardTwoState extends State<OnBoardTwo> {
               const SizedBox(height: 15),
               const Text(
                 textAlign: TextAlign.center,
-                'Fast money transfer and gauranteed safe transactions with others.',
+                'Track the progress of your savings and start a habit of saving with TransferMe.',
                 style: TextStyle(
                   color: roundColor2,
                   fontSize: 15,
@@ -75,7 +76,7 @@ class _OnBoardTwoState extends State<OnBoardTwo> {
                 onTapped: () {
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
-                      builder: (context) => const OnBoardThree(),
+                      builder: (context) => const OnBoardFour(),
                     ),
                     (route) => false,
                   );
