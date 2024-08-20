@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:paymentappui/Home/home.dart';
+import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
 import 'package:paymentappui/colors.dart';
 
 class SetPin extends StatelessWidget {
@@ -47,7 +49,7 @@ class SetPin extends StatelessWidget {
                 padding: EdgeInsets.only(top: 45, bottom: 15),
                 child: Text(
                   textAlign: TextAlign.center,
-                  'Please set your own Pin Code',
+                  'Please set your ownPin Code',
                   style: TextStyle(
                     color: roundColor2,
                   ),
@@ -84,6 +86,53 @@ class SetPin extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+              //
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 45),
+                child: SizedBox(
+                  height: 316,
+                  width: 254,
+                  child: Wrap(
+                    spacing: 30,
+                    runAlignment: WrapAlignment.center,
+                    runSpacing: 40,
+                    children: [
+                      ...List.generate(
+                        12,
+                        (index) => InkWell(
+                          onTap: () {
+                            
+                          },
+                          child: Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: roundColor2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Center(
+                              child: Text('1'),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              //
+              const SizedBox(height: 40),
+              DefaultButton(
+                text: 'Set',
+                onTapped: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ),
+                              (route) => false,
+                            );
+                },
               ),
             ],
           ),

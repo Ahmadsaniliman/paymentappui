@@ -13,143 +13,145 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 47,
-                width: 78,
-                child: Stack(
-                  children: [
-                    Container(
-                      height: (47),
-                      width: (48),
-                      decoration: const BoxDecoration(
-                        color: blueColor,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    Positioned(
-                      left: 20,
-                      child: Container(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 47,
+                  width: 78,
+                  child: Stack(
+                    children: [
+                      Container(
                         height: (47),
                         width: (48),
                         decoration: const BoxDecoration(
-                          color: roundColor1,
+                          color: blueColor,
                           shape: BoxShape.circle,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              //
-              const Padding(
-                padding: EdgeInsets.only(top: 25, bottom: 30),
-                child: Text(
-                  'Log In',
-                  style: TextStyle(
-                    color: blackColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35,
-                  ),
-                ),
-              ),
-
-              //
-              const CustomTextField(
-                  text: 'Email Address',
-                  hintText: 'limanahmadsani@gmail.com',
-                  icon: Icon(Icons.check_circle)),
-
-              const CustomTextField(
-                  text: 'Password',
-                  hintText: '',
-                  icon: Icon(Icons.visibility_off)),
-              const CustomTextField(
-                text: 'Confirm Password',
-                hintText: '',
-                icon: Icon(Icons.visibility_off),
-              ),
-              //
-              Padding(
-                padding: const EdgeInsets.only(top: 40, bottom: 40),
-                child: Center(
-                  child: DefaultButton(
-                    text: 'Log In',
-                    onTapped: () {
-                      Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                          builder: (context) => const ProfileScreen(),
+                      Positioned(
+                        left: 20,
+                        child: Container(
+                          height: (47),
+                          width: (48),
+                          decoration: const BoxDecoration(
+                            color: roundColor1,
+                            shape: BoxShape.circle,
+                          ),
                         ),
-                        (route) => false,
-                      );
-                    },
-                  ),
-                ),
-              ),
-              //
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 1,
-                    width: 79,
-                    color: roundColor2,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: Text('Or'),
-                  ),
-                  Container(
-                    height: 1,
-                    width: 79,
-                    color: roundColor2,
-                  ),
-                ],
-              ),
-              //
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: Image.asset('assets/images/google (1).png'),
-                    ),
-                    const SizedBox(
-                      width: 60,
-                    ),
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: Image.asset('assets/images/Mask group (3).png'),
-                    ),
-                  ],
-                ),
-              ),
-              //
-              const Center(
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Already have an account?',
-                        style: TextStyle(color: roundColor2),
-                      ),
-                      TextSpan(
-                        text: 'SignUp',
-                        style: TextStyle(
-                            color: blueColor,
-                            decoration: TextDecoration.underline),
                       ),
                     ],
                   ),
                 ),
-              ),
-            ],
+                //
+                const Padding(
+                  padding: EdgeInsets.only(top: 25, bottom: 30),
+                  child: Text(
+                    'Log In',
+                    style: TextStyle(
+                      color: blackColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35,
+                    ),
+                  ),
+                ),
+            
+                //
+                const CustomTextField(
+                    text: 'Email Address',
+                    hintText: 'limanahmadsani@gmail.com',
+                    icon: Icon(Icons.check_circle)),
+            
+                const CustomTextField(
+                    text: 'Password',
+                    hintText: '',
+                    icon: Icon(Icons.visibility_off)),
+                const CustomTextField(
+                  text: 'Confirm Password',
+                  hintText: '',
+                  icon: Icon(Icons.visibility_off),
+                ),
+                //
+                Padding(
+                  padding: const EdgeInsets.only(top: 40, bottom: 40),
+                  child: Center(
+                    child: DefaultButton(
+                      text: 'Log In',
+                      onTapped: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const ProfileScreen(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                //
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 1,
+                      width: 79,
+                      color: roundColor2,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Text('Or'),
+                    ),
+                    Container(
+                      height: 1,
+                      width: 79,
+                      color: roundColor2,
+                    ),
+                  ],
+                ),
+                //
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 60,
+                        child: Image.asset('assets/images/google (1).png'),
+                      ),
+                      const SizedBox(
+                        width: 60,
+                      ),
+                      SizedBox(
+                        height: 60,
+                        width: 60,
+                        child: Image.asset('assets/images/Mask group (3).png'),
+                      ),
+                    ],
+                  ),
+                ),
+                //
+                const Center(
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Already have an account?',
+                          style: TextStyle(color: roundColor2),
+                        ),
+                        TextSpan(
+                          text: 'SignUp',
+                          style: TextStyle(
+                              color: blueColor,
+                              decoration: TextDecoration.underline),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
