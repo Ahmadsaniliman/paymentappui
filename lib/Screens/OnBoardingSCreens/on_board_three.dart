@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_foure.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_three.dart';
 import 'package:paymentappui/colors.dart';
-import 'package:sizer/sizer.dart';
 
 class OnBoardThree extends StatefulWidget {
   const OnBoardThree({super.key});
@@ -42,14 +40,14 @@ class _OnBoardThreeState extends State<OnBoardThree> {
               const SizedBox(height: 15),
               const Text(
                 textAlign: TextAlign.center,
-                'Track the progress of your savings and start a habit of saving with TransferMe.',
+                'Track the progress of your savingsand start a habit of saving with TransferMe.',
                 style: TextStyle(
                   color: roundColor2,
                   fontSize: 15,
                 ),
               ),
               Padding(
-                padding:  const EdgeInsets.only(top: 50, bottom: 15),
+                padding: const EdgeInsets.only(top: 50, bottom: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
