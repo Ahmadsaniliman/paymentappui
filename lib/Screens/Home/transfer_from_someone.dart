@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Home/money_transfer_amount.dart';
-import 'package:paymentappui/Screens/AuthScreens/login.dart';
+import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/AuthScreens/register.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/colors.dart';
 
-class MoneyTransferBank extends StatelessWidget {
-  const MoneyTransferBank({super.key});
+class TransferFromSomeOne extends StatelessWidget {
+  const TransferFromSomeOne({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +12,12 @@ class MoneyTransferBank extends StatelessWidget {
       backgroundColor: backGroundColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
+          padding: const EdgeInsets.only(
+            top: 30,
+            left: 20,
+            right: 20,
+          ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
@@ -38,7 +40,7 @@ class MoneyTransferBank extends StatelessWidget {
                   ),
                   const SizedBox(width: 60),
                   const Text(
-                    'Money Transfer',
+                    'Transfer Request',
                     style: TextStyle(
                       color: blackColor,
                       fontWeight: FontWeight.bold,
@@ -47,9 +49,8 @@ class MoneyTransferBank extends StatelessWidget {
                   ),
                 ],
               ),
-              //
               const Padding(
-                padding: EdgeInsets.symmetric(vertical: 30),
+                padding: EdgeInsets.symmetric(vertical: 40),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -70,31 +71,33 @@ class MoneyTransferBank extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Please, enter the receiver’s bank account number in below field.',
+                      'Please, enter the receiver’s bank account number or phone number with the amount of transfer request in below field.',
                       style: TextStyle(color: roundColor2),
-                    ),
+                    ), //
+                    //
                   ],
                 ),
               ),
               //
               const CustomTextField(
-                text: 'Account Number',
-                hintText: '0931-5131-5321-6477',
-                icon: Icon(Icons.check_circle),
+                text: 'Sender"s Account no',
+                hintText: '008923179328747',
+                icon: Icon(Icons.check),
               ),
-              SizedBox(height: 25),
-              Center(
-                child: DefaultButton(
-                  text: 'Next',
-                  onTapped: () {
-                    Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                        builder: (context) => const MoneyTransferAmount(),
-                      ),
-                      (route) => false,
-                    );
-                  },
-                ),
+              const CustomTextField(
+                text: 'Amount of Transfer Request',
+                hintText: '\$40,000',
+                icon: Icon(Icons.check),
+              ),
+              const CustomTextField(
+                text: 'Requestee’s Name',
+                hintText: 'Liman Sani',
+                icon: Icon(Icons.check),
+              ),
+              const SizedBox(height: 30),
+              DefaultButton(
+                text: 'Next',
+                onTapped: () {},
               ),
             ],
           ),

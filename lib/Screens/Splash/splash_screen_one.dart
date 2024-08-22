@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Screens/Splash/splash_screen_two.dart';
+import 'package:paymentappui/Color/colors.dart';
 import 'package:sizer/sizer.dart';
 
-class SplashScreenThree extends StatefulWidget {
-  const SplashScreenThree({super.key});
+class SplashScreenOne extends StatefulWidget {
+  const SplashScreenOne({super.key});
 
   @override
-  State<SplashScreenThree> createState() => _SplashScreenThreeState();
+  State<SplashScreenOne> createState() => _SplashScreenOneState();
 }
 
-class _SplashScreenThreeState extends State<SplashScreenThree> {
-
+class _SplashScreenOneState extends State<SplashScreenOne> {
   @override
   void initState() {
     super.initState();
@@ -23,12 +22,13 @@ class _SplashScreenThreeState extends State<SplashScreenThree> {
       const Duration(seconds: 2),
       () => Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => const OnBoardOne(),
+          builder: (context) => const SplashScreenTwo(),
         ),
         (route) => false,
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     // final Size size = MediaQuery.of(context).size;
@@ -37,7 +37,7 @@ class _SplashScreenThreeState extends State<SplashScreenThree> {
     // double screenWidth = MediaQuery.sizeOf(context).width;
     // double screenHeight = MediaQuery.sizeOf(context).height;
     return Scaffold(
-      backgroundColor: blackColor,
+      backgroundColor: whiteColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(

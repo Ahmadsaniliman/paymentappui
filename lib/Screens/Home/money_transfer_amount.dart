@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Home/select_bank.dart';
+import 'package:paymentappui/Screens/Home/select_bank.dart';
 import 'package:paymentappui/Screens/AuthScreens/login.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Color/colors.dart';
 
 class MoneyTransferAmount extends StatelessWidget {
   const MoneyTransferAmount({super.key});

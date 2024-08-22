@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Screens/splash_screen_three.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
+import 'package:paymentappui/Color/colors.dart';
 import 'package:sizer/sizer.dart';
 
-class SplashScreenTwo extends StatefulWidget {
-  const SplashScreenTwo({super.key});
+class SplashScreenThree extends StatefulWidget {
+  const SplashScreenThree({super.key});
 
   @override
-  State<SplashScreenTwo> createState() => _SplashScreenTwoState();
+  State<SplashScreenThree> createState() => _SplashScreenThreeState();
 }
 
-class _SplashScreenTwoState extends State<SplashScreenTwo> {
-    @override
-      void initState() {
+class _SplashScreenThreeState extends State<SplashScreenThree> {
+
+  @override
+  void initState() {
     super.initState();
     navigator();
   }
@@ -22,7 +23,7 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
       const Duration(seconds: 2),
       () => Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => const SplashScreenThree(),
+          builder: (context) => const OnBoardOne(),
         ),
         (route) => false,
       ),
@@ -36,7 +37,7 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
     // double screenWidth = MediaQuery.sizeOf(context).width;
     // double screenHeight = MediaQuery.sizeOf(context).height;
     return Scaffold(
-      backgroundColor: blueColor,
+      backgroundColor: blackColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
@@ -58,7 +59,7 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
                             height: (83),
                             width: (83),
                             decoration: const BoxDecoration(
-                              color: roundColor2,
+                              color: blueColor,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -80,14 +81,14 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
                     const Text(
                       'TransferMe',
                       style: TextStyle(
-                        color: whiteColor,
+                        color: blueColor,
                         fontSize: 51,
                       ),
                     ),
                     const Text(
                       'Your Best Money Transfer Partner.',
                       style: TextStyle(
-                        color: whiteColor,
+                        color: blueColor,
                         fontSize: 15,
                       ),
                     ),
@@ -101,13 +102,13 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
                     TextSpan(
                       text: 'Secured by',
                       style: TextStyle(
-                        color: whiteColor,
+                        color: roundColor2,
                       ),
                     ),
                     TextSpan(
                       text: ' TransferMe.',
                       style: TextStyle(
-                        color: whiteColor,
+                        color: blueColor,
                       ),
                     ),
                   ],

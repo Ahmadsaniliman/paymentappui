@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_two.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Color/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class OnBoardOne extends StatelessWidget {

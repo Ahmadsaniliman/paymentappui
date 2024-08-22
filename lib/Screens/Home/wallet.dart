@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Color/colors.dart';
 
 class Wallet extends StatelessWidget {
   const Wallet({super.key});

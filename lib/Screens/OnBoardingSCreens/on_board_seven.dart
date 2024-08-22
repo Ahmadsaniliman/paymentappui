@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_eight.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Color/colors.dart';
 
 class OnBoardSeven extends StatefulWidget {
   const OnBoardSeven({super.key});

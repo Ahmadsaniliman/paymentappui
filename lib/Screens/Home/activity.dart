@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Home/exchange_rate.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Screens/Home/exchange_rate.dart';
+import 'package:paymentappui/Color/colors.dart';
 
 class ActivityScreen extends StatelessWidget {
   const ActivityScreen({super.key});

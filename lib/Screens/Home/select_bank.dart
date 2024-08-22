@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Screens/Home/select_card_transfer.dart';
+import 'package:paymentappui/Color/colors.dart';
 
 class SelectBank extends StatelessWidget {
   const SelectBank({super.key});
@@ -135,20 +136,30 @@ class SelectBank extends StatelessWidget {
                 children: [
                   ...List.generate(
                     banksData.length,
-                    (index) => Container(
+                    (index) => InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const SelectCardTransfer(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                      child: Container(
                         padding: const EdgeInsets.only(top: 65),
-                      height: 112,
-                      width: 109,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: banksData[index]['color'],
-                      ),
-                      child: Center(
-                        child: Text(
-                          banksData[index]['name']!,
-                          style: const TextStyle(
-                            color: blackColor,
-                            fontWeight: FontWeight.bold,
+                        height: 112,
+                        width: 109,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: banksData[index]['color'],
+                        ),
+                        child: Center(
+                          child: Text(
+                            banksData[index]['name']!,
+                            style: const TextStyle(
+                              color: blackColor,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

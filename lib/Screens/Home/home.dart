@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Home/card.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Screens/Home/card.dart';
+import 'package:paymentappui/Color/colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

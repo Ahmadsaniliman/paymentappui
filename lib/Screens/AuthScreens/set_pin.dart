@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Home/home.dart';
+import 'package:paymentappui/Screens/Home/home.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
-import 'package:paymentappui/colors.dart';
+import 'package:paymentappui/Color/colors.dart';
 
 class SetPin extends StatelessWidget {
   const SetPin({super.key});
