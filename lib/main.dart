@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Screens/splash_screen_one.dart';
+import 'package:paymentappui/Home/money_tranfer_bank.dart';
+import 'package:paymentappui/Home/wallet.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-          home: const SplashScreenOne(),
+          home: const MoneyTransferBank(),
         );
       },
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paymentappui/Home/card.dart';
 import 'package:paymentappui/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,21 +7,58 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> inComingData = [
+      {
+        'image': 'assets/images/58.png',
+        'name': 'Johnny\nBairstow',
+        'price': '+ \$54.23',
+      },
+      {
+        'image': 'assets/images/22 (1).png',
+        'name': 'Johnson\nCharles',
+        'price': '+ \$62.54',
+      },
+      {
+        'image': 'assets/images/58.png',
+        'name': 'Mehwish\nIqbal',
+        'price': '+ \$54.23',
+      },
+    ];
+    final List<Map<String, String>> outComingData = [
+      {
+        'image': 'assets/images/10.png',
+        'name': 'John\nMorrison',
+        'price': '- \$396.84',
+      },
+      {
+        'image': 'assets/images/19 (1).png',
+        'name': 'Mellony\nStorks',
+        'price': '- \$396.84',
+      },
+      {
+        'image': 'assets/images/25.png',
+        'name': 'Mehwish\nIqbal',
+        'price': '+ \$54.23',
+      },
+    ];
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
-          child: SingleChildScrollView(
-            child: Stack(
-              children: [
-                Column(
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset('assets/images/Vector (69).png'),
+                        InkWell(
+                            onTap: () {},
+                            child:
+                                Image.asset('assets/images/Vector (69).png')),
                         Stack(
                           children: [
                             Image.asset('assets/images/Vector (70).png'),
@@ -65,72 +103,82 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           ...List.generate(
                             2,
-                            (index) => Container(
-                              margin: const EdgeInsets.only(right: 20),
-                              padding: const EdgeInsets.all(15),
-                              height: 80,
-                              width: 307,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                  color: roundColor2,
+                            (index) => InkWell(
+                              onTap: () {
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                    builder: (context) => const CardScreen(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 20),
+                                padding: const EdgeInsets.all(15),
+                                height: 80,
+                                width: 307,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                    color: roundColor2,
+                                  ),
                                 ),
-                              ),
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    height: 30,
-                                    width: 42,
-                                    child: Stack(
-                                      children: [
-                                        Container(
-                                          height: 20,
-                                          width: 20,
-                                          decoration: const BoxDecoration(
-                                              color: Color(0xFFE80B26),
-                                              shape: BoxShape.circle),
-                                        ),
-                                        Positioned(
-                                          right: 10,
-                                          child: Container(
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      height: 30,
+                                      width: 42,
+                                      child: Stack(
+                                        children: [
+                                          Container(
                                             height: 20,
                                             width: 20,
                                             decoration: const BoxDecoration(
-                                                color: Color(0xFFEB996E),
+                                                color: Color(0xFFE80B26),
                                                 shape: BoxShape.circle),
+                                          ),
+                                          Positioned(
+                                            right: 10,
+                                            child: Container(
+                                              height: 20,
+                                              width: 20,
+                                              decoration: const BoxDecoration(
+                                                  color: Color(0xFFEB996E),
+                                                  shape: BoxShape.circle),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'VISA',
+                                          style: TextStyle(
+                                            color: blackColor,
+                                          ),
+                                        ),
+                                        SizedBox(height: 7),
+                                        Text(
+                                          'Master Card  . 6253',
+                                          style: TextStyle(
+                                            color: roundColor2,
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                  const Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'VISA',
-                                        style: TextStyle(
-                                          color: blackColor,
-                                        ),
+                                    const SizedBox(width: 27),
+                                    const Text(
+                                      '\$758964.10',
+                                      style: TextStyle(
+                                        color: blueColor,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      SizedBox(height: 7),
-                                      Text(
-                                        'Master Card  . 6253',
-                                        style: TextStyle(
-                                          color: roundColor2,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(width: 27),
-                                  const Text(
-                                    '\$758964.10',
-                                    style: TextStyle(
-                                      color: blueColor,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -152,7 +200,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           Text(
                             'Sell All >',
-                            style: TextStyle(color: roundColor2, fontSize: 15),
+                            style: TextStyle(color: blackColor, fontSize: 15),
                           ),
                         ],
                       ),
@@ -183,34 +231,39 @@ class HomeScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Image.asset('assets/images/58.png'),
+                                        Image.asset(
+                                            inComingData[index]['image']!),
                                         Column(
                                           children: [
                                             Image.asset(
                                                 'assets/images/icon.png'),
                                             const SizedBox(height: 6),
-                                            const Text('+ \$62.54'),
+                                            Text(
+                                              inComingData[index]['price']!,
+                                              style: const TextStyle(
+                                                  color: roundColor1),
+                                            ),
                                           ],
                                         ),
                                       ],
                                     ),
                                   ),
-                                  const Positioned(
+                                  Positioned(
                                     top: 60,
                                     left: 7,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
+                                        const Text(
                                           'From',
                                           style: TextStyle(
                                               color: roundColor2, fontSize: 13),
                                         ),
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Text(
-                                          'Johnny \nBairstow',
-                                          style: TextStyle(
+                                          inComingData[index]['name']!,
+                                          style: const TextStyle(
                                             color: blackColor,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -282,13 +335,18 @@ class HomeScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Image.asset('assets/images/58.png'),
+                                        Image.asset(
+                                            outComingData[index]['image']!),
                                         Column(
                                           children: [
                                             Image.asset(
                                                 'assets/images/icon.png'),
                                             const SizedBox(height: 6),
-                                            const Text('+ \$62.54'),
+                                            Text(
+                                              outComingData[index]['price']!,
+                                              style: const TextStyle(
+                                                  color: blueColor),
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -331,96 +389,135 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                          //
+                          //
+                        ],
+                      ),
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Other Transactions',
+                          style: TextStyle(
+                            color: roundColor2,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          'See All >',
+                          style: TextStyle(color: blueColor),
+                        ),
+                      ],
+                    ),
+                    //
+                    Container(
+                      height: 80,
+                      width: 308,
+                      decoration: BoxDecoration(
+                        color: whiteColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 57,
+                            width: 57,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: roundColor1,
+                            ),
+                          )
                         ],
                       ),
                     ),
                   ],
                 ),
-                //
-                //
-                //
-                //
-                Positioned(
-                  bottom: 20,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Container(
-                      height: 70,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      width: 327,
-                      decoration: BoxDecoration(
-                        color: whiteColor,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 50,
-                            width: 44,
-                            decoration: const BoxDecoration(
-                              color: blueColor,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20),
-                                topLeft: Radius.circular(20),
-                              ),
-                            ),
-                            child: Image.asset(
-                              'assets/images/home.png',
-                              color: whiteColor,
+              ),
+              //
+              //
+              //
+              //
+              Positioned(
+                bottom: 20,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Container(
+                    height: 70,
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    width: 327,
+                    decoration: BoxDecoration(
+                      color: whiteColor,
+                      borderRadius: BorderRadius.circular(20),
+                      // border: Border.all(),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 44,
+                          decoration: const BoxDecoration(
+                            color: blueColor,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              topLeft: Radius.circular(20),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 44,
-                            decoration: const BoxDecoration(
-                              //   color: blueColor,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20),
-                                topLeft: Radius.circular(20),
-                              ),
-                            ),
-                            child: Image.asset(
-                              'assets/images/wallet.png',
+                          child: Image.asset(
+                            'assets/images/home.png',
+                            color: whiteColor,
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 44,
+                          decoration: const BoxDecoration(
+                            //   color: blueColor,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              topLeft: Radius.circular(20),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 44,
-                            decoration: const BoxDecoration(
-                              //   color: blueColor,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20),
-                                topLeft: Radius.circular(20),
-                              ),
-                            ),
-                            child: Image.asset(
-                              'assets/images/chart.png',
+                          child: Image.asset(
+                            'assets/images/wallet.png',
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 44,
+                          decoration: const BoxDecoration(
+                            //   color: blueColor,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              topLeft: Radius.circular(20),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 44,
-                            decoration: const BoxDecoration(
-                              //   color: blueColor,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20),
-                                topLeft: Radius.circular(20),
-                              ),
-                            ),
-                            child: Image.asset(
-                              'assets/images/user_2.png',
-                              //   color: whiteColor,
+                          child: Image.asset(
+                            'assets/images/chart.png',
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 44,
+                          decoration: const BoxDecoration(
+                            //   color: blueColor,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              topLeft: Radius.circular(20),
                             ),
                           ),
-                        ],
-                      ),
+                          child: Image.asset(
+                            'assets/images/user_2.png',
+                            //   color: whiteColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
