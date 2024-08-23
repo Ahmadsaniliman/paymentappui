@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/Success/money_transfer_succcess.dart';
 
 class SelectCardTransfer extends StatelessWidget {
   const SelectCardTransfer({super.key});
@@ -119,89 +120,100 @@ class SelectCardTransfer extends StatelessWidget {
                               roundColor1,
                               const Color(0xFFF59D31),
                             ];
-                            return Container(
-                              margin: const EdgeInsets.only(bottom: 15),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 15),
-                              height: 172,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: colors[index],
-                              ),
-                              child: const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Liman',
-                                        style: TextStyle(color: whiteColor),
-                                      ),
-                                      Text(
-                                        'A debit card',
-                                        style: TextStyle(color: whiteColor),
-                                      ),
-                                    ],
+                            return InkWell(
+                              onTap: () {
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MoneyTransferSucess(),
                                   ),
-                                  SizedBox(height: 7),
-                                  //
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '2423 3581 9503 2414',
-                                        style: TextStyle(
-                                          color: whiteColor,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                  (route) => false,
+                                );
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 15),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 15),
+                                height: 172,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: colors[index],
+                                ),
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Liman',
+                                          style: TextStyle(color: whiteColor),
                                         ),
-                                      ),
-                                      Text(
-                                        '21/24',
-                                        style: TextStyle(
-                                          color: whiteColor,
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold,
+                                        Text(
+                                          'A debit card',
+                                          style: TextStyle(color: whiteColor),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  //
-                                  //
-                                  SizedBox(height: 40),
-                                  Text(
-                                    'Your Balance',
-                                    style: TextStyle(
-                                      color: whiteColor,
+                                      ],
                                     ),
-                                  ),
-                                  SizedBox(height: 8),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '\$3,100.30',
-                                        style: TextStyle(
-                                          color: whiteColor,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
+                                    SizedBox(height: 7),
+                                    //
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '2423 3581 9503 2414',
+                                          style: TextStyle(
+                                            color: whiteColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        'Visa',
-                                        style: TextStyle(
-                                          color: whiteColor,
-                                          fontWeight: FontWeight.bold,
+                                        Text(
+                                          '21/24',
+                                          style: TextStyle(
+                                            color: whiteColor,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
+                                      ],
+                                    ),
+                                    //
+                                    //
+                                    SizedBox(height: 40),
+                                    Text(
+                                      'Your Balance',
+                                      style: TextStyle(
+                                        color: whiteColor,
                                       ),
-                                    ],
-                                  ),
-                                ],
+                                    ),
+                                    SizedBox(height: 8),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '\$3,100.30',
+                                          style: TextStyle(
+                                            color: whiteColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Visa',
+                                          style: TextStyle(
+                                            color: whiteColor,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           }),

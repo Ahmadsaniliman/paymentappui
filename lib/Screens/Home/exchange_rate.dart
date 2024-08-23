@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/Home/activity.dart';
 
 class ExchangeRateScreen extends StatelessWidget {
   const ExchangeRateScreen({super.key});
@@ -37,7 +38,14 @@ class ExchangeRateScreen extends StatelessWidget {
               Row(
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (context) => const ActivityScreen(),
+                        ),
+                        (route) => false,
+                      );
+                    },
                     child: Container(
                       height: 40,
                       width: 63,
@@ -182,7 +190,8 @@ class ExchangeRateScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

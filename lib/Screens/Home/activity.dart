@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:paymentappui/Screens/Home/card.dart';
 import 'package:paymentappui/Screens/Home/exchange_rate.dart';
 import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/Home/home.dart';
+import 'package:paymentappui/Screens/Profile/profile.dart';
 
 class ActivityScreen extends StatelessWidget {
   const ActivityScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int selectedBar = 2;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 246, 245, 245),
       body: SafeArea(
@@ -24,7 +28,14 @@ class ActivityScreen extends StatelessWidget {
                     Row(
                       children: [
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
                           child: Container(
                             height: 40,
                             width: 63,
@@ -93,103 +104,114 @@ class ActivityScreen extends StatelessWidget {
                     //
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 25),
-                      child: Container(
-                        height: 275,
-                        width: 342,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: whiteColor,
-                        ),
-                        child: Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 20, right: 20, top: 20),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: 42,
-                                        height: 40,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: blueColor,
-                                        ),
-                                        child: Center(
-                                          child: Image.asset(
-                                              'assets/images/calendar.png'),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 20),
-                                      const Text(
-                                        '09 - 13 May',
-                                        style: TextStyle(
-                                          color: blackColor,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Image.asset('assets/images/chart.png')
-                                ],
-                              ),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const ExchangeRateScreen(),
                             ),
-                            //
-                            //
-                            Positioned(
-                              bottom: 0,
-                              child: Image.asset('assets/images/Vector 51.png'),
-                            ),
-                            //
-                            //
-                            Positioned(
-                              bottom: 90,
-                              left: 145,
-                              child: Container(
-                                height: 10,
-                                width: 10,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: blueColor,
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 110,
-                              left: 90,
-                              child: Container(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 15),
-                                width: 98,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  color: blueColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
+                            (route) => false,
+                          );
+                        },
+                        child: Container(
+                          height: 275,
+                          width: 342,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: whiteColor,
+                          ),
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20, right: 20, top: 20),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Text(
-                                      '\$50.84',
-                                      style: TextStyle(
-                                        color: whiteColor,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 42,
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: blueColor,
+                                          ),
+                                          child: Center(
+                                            child: Image.asset(
+                                                'assets/images/calendar.png'),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        const Text(
+                                          '09 - 13 May',
+                                          style: TextStyle(
+                                            color: blackColor,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Image.asset(
-                                      'assets/images/icon.png',
-                                      color: whiteColor,
-                                    ),
+                                    Image.asset('assets/images/chart.png')
                                   ],
                                 ),
                               ),
-                            ),
-                          ],
+                              //
+                              //
+                              Positioned(
+                                bottom: 0,
+                                child:
+                                    Image.asset('assets/images/Vector 51.png'),
+                              ),
+                              //
+                              //
+                              Positioned(
+                                bottom: 90,
+                                left: 145,
+                                child: Container(
+                                  height: 10,
+                                  width: 10,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: blueColor,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 110,
+                                left: 90,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15),
+                                  width: 98,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: blueColor,
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        '\$50.84',
+                                        style: TextStyle(
+                                          color: whiteColor,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Image.asset(
+                                        'assets/images/icon.png',
+                                        color: whiteColor,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -355,32 +377,56 @@ class ActivityScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 0 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/home.png',
-                            color: roundColor1,
+                            child: Image.asset(
+                              'assets/images/home.png',
+                              color:
+                                  selectedBar == 0 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const CardScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 1 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/wallet.png',
+                            child: Image.asset(
+                              'assets/images/wallet.png',
+                              color:
+                                  selectedBar == 1 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
                         InkWell(
@@ -395,31 +441,44 @@ class ActivityScreen extends StatelessWidget {
                           child: Container(
                             height: 50,
                             width: 44,
-                            decoration: const BoxDecoration(
-                              //   color: blueColor,
-                              borderRadius: BorderRadius.only(
+                            decoration: BoxDecoration(
+                              color: selectedBar == 2 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(20),
                                 topLeft: Radius.circular(20),
                               ),
                             ),
                             child: Image.asset(
                               'assets/images/chart.png',
+                              color:
+                                  selectedBar == 2 ? whiteColor : roundColor1,
                             ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            //   color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const ProfileScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 3 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/user_2.png',
-                            //   color: whiteColor,
+                            child: Image.asset(
+                              'assets/images/user_2.png',
+                              color:
+                                  selectedBar == 3 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
                       ],

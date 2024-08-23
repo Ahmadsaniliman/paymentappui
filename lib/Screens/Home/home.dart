@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:paymentappui/Screens/Home/activity.dart';
 import 'package:paymentappui/Screens/Home/card.dart';
 import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/Home/drawer.dart';
+import 'package:paymentappui/Screens/Profile/profile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int selectedBar = 0;
     final List<Map<String, String>> inComingData = [
       {
         'image': 'assets/images/58.png',
@@ -56,18 +60,23 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                            onTap: () {},
+                            onTap: () {
+                                DrawerWidget();
+                            },
                             child:
                                 Image.asset('assets/images/Vector (69).png')),
-                        Stack(
-                          children: [
-                            Image.asset('assets/images/Vector (70).png'),
-                            Positioned(
-                                right: 0,
-                                top: 0,
-                                child: Image.asset(
-                                    'assets/images/Rectangle 173.png')),
-                          ],
+                        InkWell(
+                          onTap: () {},
+                          child: Stack(
+                            children: [
+                              Image.asset('assets/images/Vector (70).png'),
+                              Positioned(
+                                  right: 0,
+                                  top: 0,
+                                  child: Image.asset(
+                                      'assets/images/Rectangle 173.png')),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -340,7 +349,9 @@ class HomeScreen extends StatelessWidget {
                                         Column(
                                           children: [
                                             Image.asset(
-                                                'assets/images/icon.png'),
+                                              'assets/images/iconnn.png',
+                                              height: 20,
+                                            ),
                                             const SizedBox(height: 6),
                                             Text(
                                               outComingData[index]['price']!,
@@ -454,62 +465,108 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 0 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/home.png',
-                            color: whiteColor,
+                            child: Image.asset(
+                              'assets/images/home.png',
+                              color:
+                                  selectedBar == 0 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            //   color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const CardScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 1 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/wallet.png',
+                            child: Image.asset(
+                              'assets/images/wallet.png',
+                              color:
+                                  selectedBar == 1 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            //   color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const ActivityScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 2 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/chart.png',
+                            child: Image.asset(
+                              'assets/images/chart.png',
+                              color:
+                                  selectedBar == 2 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            //   color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const ProfileScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 3 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/user_2.png',
-                            //   color: whiteColor,
+                            child: Image.asset(
+                              'assets/images/user_2.png',
+                              color:
+                                  selectedBar == 3 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
                       ],

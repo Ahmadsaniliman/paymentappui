@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/Home/home.dart';
 
 class MoneyTransferSucess extends StatelessWidget {
   const MoneyTransferSucess({super.key});
@@ -46,7 +47,7 @@ class MoneyTransferSucess extends StatelessWidget {
                     SizedBox(height: 10),
                     Text(
                       textAlign: TextAlign.center,
-                      'Money Transfered\nSuccessfully',
+                      'Transaction\nSuccessfully',
                       style: TextStyle(
                         color: blueColor,
                         fontSize: 15,
@@ -56,20 +57,30 @@ class MoneyTransferSucess extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                height: 65,
-                width: 153,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: blueColor,
-                ),
-                child: const Center(
-                  child: Text(
-                    'Great',
-                    style:  TextStyle(
-                      color: whiteColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                    (route) => false,
+                  );
+                },
+                child: Container(
+                  height: 65,
+                  width: 153,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: blueColor,
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Great',
+                      style: TextStyle(
+                        color: whiteColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

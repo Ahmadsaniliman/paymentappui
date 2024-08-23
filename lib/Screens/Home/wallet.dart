@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/Home/card.dart';
+import 'package:paymentappui/Screens/Home/mobile_data.dart';
+import 'package:paymentappui/Screens/Home/money_tranfer_bank.dart';
 
 class Wallet extends StatelessWidget {
   const Wallet({super.key});
@@ -72,7 +75,14 @@ class Wallet extends StatelessWidget {
                 Row(
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const CardScreen(),
+                          ),
+                          (route) => false,
+                        );
+                      },
                       child: Container(
                         height: 40,
                         width: 63,
@@ -128,34 +138,45 @@ class Wallet extends StatelessWidget {
                   spacing: 20,
                   children: [
                     ...List.generate(walletData.length, (index) {
-                      return Container(
-                        height: 112,
-                        width: 109,
-                        decoration: BoxDecoration(
-                            color: whiteColor,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: 48,
-                              width: 48,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: backGroundColor,
-                              ),
-                              child: Center(
-                                child: Image.asset(walletData[index]['icon']!),
-                              ),
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const MobilePhone(),
                             ),
-                            Text(
-                              walletData[index]['text']!,
-                              style: const TextStyle(
-                                  color: blackColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 13),
-                            ),
-                          ],
+                            (route) => false,
+                          );
+                        },
+                        child: Container(
+                          height: 112,
+                          width: 109,
+                          decoration: BoxDecoration(
+                              color: whiteColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                height: 48,
+                                width: 48,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: backGroundColor,
+                                ),
+                                child: Center(
+                                  child:
+                                      Image.asset(walletData[index]['icon']!),
+                                ),
+                              ),
+                              Text(
+                                walletData[index]['text']!,
+                                style: const TextStyle(
+                                    color: blackColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     }),
@@ -188,85 +209,93 @@ class Wallet extends StatelessWidget {
                   ),
                 ),
                 //
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                  height: 172,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: roundColor1,
-                  ),
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Liman',
-                            style: TextStyle(color: whiteColor),
-                          ),
-                          Text(
-                            'A debit card',
-                            style: TextStyle(color: whiteColor),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 7),
-                      //
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '2423 3581 9503 2414',
-                            style: TextStyle(
-                              color: whiteColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => const MoneyTransferBank(),),
+                      (route) => false,
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 15),
+                    height: 172,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: roundColor1,
+                    ),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Liman',
+                              style: TextStyle(color: whiteColor),
                             ),
-                          ),
-                          Text(
-                            '21/24',
-                            style: TextStyle(
-                              color: whiteColor,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
+                            Text(
+                              'A debit card',
+                              style: TextStyle(color: whiteColor),
                             ),
-                          ),
-                        ],
-                      ),
-                      //
-                      //
-                      SizedBox(height: 40),
-                      Text(
-                        'Your Balance',
-                        style: TextStyle(
-                          color: whiteColor,
+                          ],
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '\$3,100.30',
-                            style: TextStyle(
-                              color: whiteColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                        SizedBox(height: 7),
+                        //
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '2423 3581 9503 2414',
+                              style: TextStyle(
+                                color: whiteColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'Visa',
-                            style: TextStyle(
-                              color: whiteColor,
-                              fontWeight: FontWeight.bold,
+                            Text(
+                              '21/24',
+                              style: TextStyle(
+                                color: whiteColor,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
+                          ],
+                        ),
+                        //
+                        //
+                        SizedBox(height: 40),
+                        Text(
+                          'Your Balance',
+                          style: TextStyle(
+                            color: whiteColor,
                           ),
-                        ],
-                      ),
-                    ],
+                        ),
+                        SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '\$3,100.30',
+                              style: TextStyle(
+                                color: whiteColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Text(
+                              'Visa',
+                              style: TextStyle(
+                                color: whiteColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),

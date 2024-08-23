@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:paymentappui/Screens/Home/activity.dart';
+import 'package:paymentappui/Screens/Home/home.dart';
+import 'package:paymentappui/Screens/Home/new_card.dart';
+import 'package:paymentappui/Screens/Home/wallet.dart';
 import 'package:paymentappui/Screens/OnBoardingSCreens/on_board_one.dart';
 import 'package:paymentappui/Color/colors.dart';
+import 'package:paymentappui/Screens/Profile/profile.dart';
 
 class CardScreen extends StatelessWidget {
   const CardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int selectedBar = 1;
     final List<Map<dynamic, dynamic>> cardData = [
       {
         'icon': 'assets/images/icon.png',
@@ -44,7 +49,14 @@ class CardScreen extends StatelessWidget {
                   Row(
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                              builder: (context) => const HomeScreen(),
+                            ),
+                            (route) => false,
+                          );
+                        },
                         child: Container(
                           height: 40,
                           width: 63,
@@ -82,7 +94,14 @@ class CardScreen extends StatelessWidget {
                           ...List.generate(
                             2,
                             (index) => InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                    builder: (context) => const Wallet(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
                               child: Row(
                                 children: [
                                   Container(
@@ -224,7 +243,14 @@ class CardScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 30),
                     child: DefaultButton(
                       text: 'Add Card',
-                      onTapped: () {},
+                      onTapped: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const AddNewCard(),
+                          ),
+                          (route) => false,
+                        );
+                      },
                     ),
                   ),
 
@@ -472,32 +498,56 @@ class CardScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 0 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/home.png',
-                            color: roundColor1,
+                            child: Image.asset(
+                              'assets/images/home.png',
+                              color:
+                                  selectedBar == 0 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const CardScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 1 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/wallet.png',
+                            child: Image.asset(
+                              'assets/images/wallet.png',
+                              color:
+                                  selectedBar == 1 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
                         InkWell(
@@ -512,31 +562,44 @@ class CardScreen extends StatelessWidget {
                           child: Container(
                             height: 50,
                             width: 44,
-                            decoration: const BoxDecoration(
-                              //   color: blueColor,
-                              borderRadius: BorderRadius.only(
+                            decoration: BoxDecoration(
+                              color: selectedBar == 2 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(20),
                                 topLeft: Radius.circular(20),
                               ),
                             ),
                             child: Image.asset(
                               'assets/images/chart.png',
+                              color:
+                                  selectedBar == 2 ? whiteColor : roundColor1,
                             ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: 44,
-                          decoration: const BoxDecoration(
-                            //   color: blueColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const ProfileScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 44,
+                            decoration: BoxDecoration(
+                              color: selectedBar == 3 ? blueColor : null,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(
-                            'assets/images/user_2.png',
-                            //   color: whiteColor,
+                            child: Image.asset(
+                              'assets/images/user_2.png',
+                              color:
+                                  selectedBar == 3 ? whiteColor : roundColor1,
+                            ),
                           ),
                         ),
                       ],

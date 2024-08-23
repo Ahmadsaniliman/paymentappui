@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paymentappui/Screens/Home/statistic.dart';
+import 'package:paymentappui/Screens/Splash/splash_screen_one.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-          home: const Statistic(),
+          home: const SplashScreenOne(),
         );
       },
     );
